@@ -13,9 +13,9 @@ title: Portfolio Keisha Hernantya Zahra # This is what shows up in the tab of th
 
 # Hero Section
 name: Keisha Hernantya Zahra
-headline: Undergraduate Data Science Student
+headline: Mahasiswi S1 Sains Data
 description: >- # dont remove this line. this will ignore all new lines until the next section
-  Mahasiswi S1 Data Sains di Telkom University yang aktif dan memiliki semangat belajar tinggi. Tertarik pada pengembangan teknologi, organisasi, dan analisis data.
+  Mahasiswi S1 Sains Data di Telkom University yang aktif dan memiliki semangat belajar tinggi. Tertarik pada pengembangan teknologi, organisasi, dan analisis data.
 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
 profile_image: ./assets/images/profile-image/avatar.jpeg
@@ -29,9 +29,9 @@ resume-url: https://drive.google.com/file/d/13Z3duVzh-gguPU5r03oJVEE6rV9rd3DS/vi
 # Set up external links - this will show up as small icons next to your name.
 
 external-links:    # input only your own url slug. The icons with missing entries will not appear.
+  linkedin: keishahernantya    # https://www.linkedin.com/in/{your url slug}
   github: keishahz    # https://github.com/{your url slug}
   email: keishahrnt@gmail.com   # Email address
-  linkedin:           # https://www.linkedin.com/in/{your url slug} 
   stackoverflow:      # https://stackoverflow.com/users/{your url slug}
   medium:            # https://medium.com/@{your url slug} 
   x-twitter:   # https://x.com/{your url slug} 
