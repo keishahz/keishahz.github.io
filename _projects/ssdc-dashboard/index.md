@@ -8,7 +8,7 @@ skills:
   - Plotly Express
   - Pandas
   - Data Storytelling
-main-image: /ekomer.jpg
+main-image: ./_projects/ssdc-dashboard/ekomer.jpg
 ---
 
 ## 🏆 Tentang Proyek
