@@ -15,3 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// Carousel Scroll Function
+function scrollCarousel(containerId, amount) {
+    const container = document.getElementById(containerId);
+    if (container) {
+        container.scrollBy({
+            left: amount,
+            behavior: 'smooth'
+        });
+    }
+}

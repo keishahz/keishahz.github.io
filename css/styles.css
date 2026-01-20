@@ -986,3 +986,180 @@ footer p {
       
 }
 
+/* EXPERIENCE & CERTIFICATIONS SECTION */
+.experience-section {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.experience-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Carousel Container - 2 rows horizontal scroll */
+.experience-container {
+    display: grid;
+    grid-template-rows: repeat(2, 200px);
+    grid-auto-flow: column;
+    grid-auto-columns: 280px;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding: 10px 0;
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.experience-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Arrow Buttons */
+.carousel-arrow {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--link-color);
+    background-color: var(--background-color);
+    color: var(--link-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    background-color: var(--link-color);
+    color: var(--background-color);
+    transform: scale(1.1);
+}
+
+.carousel-arrow-left {
+    order: -1;
+}
+
+.carousel-arrow-right {
+    order: 1;
+}
+
+/* Experience Card */
+.experience-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: scale(1.02);
+}
+
+.experience-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Overlay */
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 20px 15px 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.experience-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.card-overlay .card-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: white;
+    margin: 0 0 5px 0;
+    line-height: 1.3;
+}
+
+.card-overlay .card-org {
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .experience-section h2 {
+        font-size: 2em;
+    }
+
+    .experience-container {
+        grid-template-rows: repeat(2, 150px);
+        grid-auto-columns: 220px;
+        gap: 15px;
+    }
+
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-wrapper {
+        gap: 10px;
+    }
+
+    .experience-section h2 {
+        font-size: 1.5em;
+    }
+
+    .experience-container {
+        grid-template-rows: 1fr;
+        grid-auto-columns: 200px;
+        gap: 12px;
+    }
+
+    .carousel-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9em;
+    }
+
+    .card-overlay .card-title {
+        font-size: 0.95em;
+    }
+
+    .card-overlay .card-org {
+        font-size: 0.75em;
+    }
+}
+
