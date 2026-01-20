@@ -1162,87 +1162,146 @@ footer p {
         font-size: 0.75em;
     }
 
-    /* --- CSS untuk Modal / Lightbox --- */
+    /* =========================================
+   MODAL / LIGHTBOX STYLING (THE CORRECT WAY)
+   ========================================= */
+
+/* 1. Latar Belakang Gelap (Overlay) */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 9999; 
+    display: none; /* Default sembunyi */
+    position: fixed;
+    z-index: 100000; /* Paling atas di atas segalanya */
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.9); 
-    backdrop-filter: blur(5px); 
-}
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    background-color: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%); 
-    animation: zoom 0.3s;
-}
-.modal-image {
     width: 100%;
-    height: auto;
-    display: block;
-    border-bottom: 4px solid #4a76ee; 
+    height: 100%;
+    overflow: hidden; /* Tidak ada scroll ganda */
+    background-color: rgba(0, 0, 0, 0); /* Transparan dulu untuk animasi */
+    transition: background-color 0.3s ease;
+    
+    /* Flexbox untuk menengahkan kotak putih */
+    align-items: center;
+    justify-content: center;
 }
-.modal-text {
-    padding: 20px 30px;
-    text-align: left;
-    color: #333;
+
+/* Class tambahan saat modal muncul (untuk animasi) */
+.modal.show {
+    background-color: rgba(0, 0, 0, 0.85); /* Gelap banget biar fokus */
+    backdrop-filter: blur(5px); /* Efek blur keren di background */
 }
-.modal-text h3 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #222;
+
+/* 2. Kotak Putih (Container Utama) */
+.modal-content {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 600px; /* Lebar maksimal biar ga kegedean di laptop */
+    max-height: 90vh; /* Maksimal tinggi 90% layar */
+    border-radius: 16px; /* Sudut melengkung halus */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Bayangan elegan */
+    position: relative;
+    overflow-y: auto; /* Bisa scroll kalau konten kepanjangan */
+    opacity: 0;
+    transform: scale(0.9); /* Mulai agak kecil */
+    transition: all 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
 }
-.modal-text h4 {
-    margin: 5px 0 15px 0;
-    font-size: 1rem;
-    color: #666;
-    font-weight: 500;
+
+/* Animasi saat muncul */
+.modal.show .modal-content {
+    opacity: 1;
+    transform: scale(1); /* Jadi ukuran normal */
 }
-.modal-text hr {
-    border: 0;
-    border-top: 1px solid #eee;
-    margin: 15px 0;
-}
-.modal-text p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #444;
-}
+
+/* 3. Tombol Close (X) */
 .close-modal {
     position: absolute;
     top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
+    right: 20px;
+    color: #fff; /* Putih karena di atas gambar */
+    background: rgba(0,0,0,0.5); /* Background bulat transparan */
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    font-size: 20px;
     font-weight: bold;
-    transition: 0.3s;
     cursor: pointer;
-    z-index: 10000;
+    z-index: 10;
+    transition: 0.2s;
 }
+
 .close-modal:hover {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
+    background: rgba(0,0,0,0.8);
+    transform: rotate(90deg);
 }
-@keyframes zoom {
-    from {transform:translateY(-50%) scale(0)} 
-    to {transform:translateY(-50%) scale(1)}
+
+/* 4. Area Gambar (Atas) */
+.modal-image-container {
+    width: 100%;
+    background-color: #f0f0f0; /* Placeholder warna abu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-@media only screen and (max-width: 700px){
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 60vh; /* Batasi tinggi gambar biar teks tetep kelihatan */
+    object-fit: contain; /* Gambar pas di kotak, ga kepotong */
+    display: block;
+}
+
+/* 5. Area Teks (Bawah) */
+.modal-text {
+    padding: 24px 30px;
+    text-align: left;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+.modal-text h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.3;
+}
+
+.modal-text h4 {
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    color: #007bff; /* Warna biru untuk organisasi */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+/* Responsif untuk HP (Layar Kecil) */
+@media screen and (max-width: 600px) {
     .modal-content {
-        width: 90%;
+        width: 95%;
+        max-height: 85vh;
+        margin: auto;
     }
+    
+    .modal-text {
+        padding: 20px;
+    }
+    
+    .modal-text h3 {
+        font-size: 1.2rem;
+    }
+}
+  
 }
 
