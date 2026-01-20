@@ -282,12 +282,35 @@ nav .mobile-nav {
 .project-grid-section .grid-container {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
     gap: 25px;
     width: 100%;
     margin: 0 auto;
     align-items: stretch;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    padding-left: 0;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar but keep functionality */
+.project-grid-section .grid-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.project-grid-section .grid-container::-webkit-scrollbar-track {
+    background: var(--light-background-color);
+    border-radius: 10px;
+}
+
+.project-grid-section .grid-container::-webkit-scrollbar-thumb {
+    background: var(--link-color);
+    border-radius: 10px;
+}
+
+.project-grid-section .grid-container::-webkit-scrollbar-thumb:hover {
+    background: var(--highlight-color);
 }
 
 .project-grid-section .project-link {
@@ -299,9 +322,10 @@ nav .mobile-nav {
 .project-grid-section .grid-container .project-link .project-card {
     display: flex;
     flex-direction: column;
-    width: 450px;
-    min-width: 450px;
-    height: 100%;
+    width: 320px;
+    min-width: 320px;
+    max-width: 320px;
+    height: auto;
     box-sizing: border-box;
     padding: 15px;
     background: var(--background-color);
@@ -311,16 +335,29 @@ nav .mobile-nav {
     border: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     overflow: hidden;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    cursor: pointer;
+}
+
+.project-grid-section .grid-container .project-link .project-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
 }
 
 .project-card img {
     width: 100%; 
     max-width: 100%; 
-    aspect-ratio: 3/1;
+    aspect-ratio: 16/9;
     object-fit: cover;
     display: block;
     border-radius: 6px;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
 }
 
 
