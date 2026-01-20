@@ -7,7 +7,7 @@ skills:
   - Streamlit
   - Data Visualization
   - GitHub
-main-image: /assets/projects/climate.jpg
+main-image: /climate.jpg
 ---
 
 ## Deskripsi Proyek

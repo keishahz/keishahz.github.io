@@ -7,7 +7,7 @@ skills:
   - Streamlit
   - Data Visualization
   - GitHub
-main-image: /assets/projects/imdb-preview.jpg
+main-image: /movie.jpg
 ---
 
 ## Deskripsi Project

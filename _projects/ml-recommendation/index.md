@@ -7,7 +7,7 @@ skills:
   - Scikit-Learn
   - NLP (TF-IDF)
   - Web Scraping (Selenium)
-main-image: /assets/projects/ml-course.jpg
+main-image: /ml.jpg
 ---
 
 ## Deskripsi Proyek
