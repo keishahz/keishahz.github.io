@@ -280,13 +280,14 @@ nav .mobile-nav {
 }
 
 .project-grid-section .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    display: flex;
+    overflow-x: auto;
     gap: 25px;
     width: 100%;
     margin: 0 auto;
     align-items: stretch;
-  
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
 }
 
 .project-grid-section .project-link {
@@ -298,8 +299,9 @@ nav .mobile-nav {
 .project-grid-section .grid-container .project-link .project-card {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%; /* Take full height of grid cell */
+    width: 450px;
+    min-width: 450px;
+    height: 100%;
     box-sizing: border-box;
     padding: 15px;
     background: var(--background-color);
