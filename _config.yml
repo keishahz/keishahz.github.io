@@ -74,12 +74,12 @@ formspree-key:   https://formspree.io/f/{8-digit key}
 
 # Active theme (Updatethis to switch themes). Make sure to keep the indentation the samne.
 colors: # this is the basic theme
-  text: "#212529"       # Hitam pekat (biar tulisan gampang dibaca)
-  border: "#ffc2d1"     # Pink sakura (untuk garis pinggir, lembut tapi kelihatan)
-  link: "#d63384"       # HOT PINK / MAGENTA (Bold banget, jelas kelihatan)
-  highlight: "#a61e4d"  # Pink Tua (Merah Hati) untuk efek hover
-  background: "#ffffff" # Putih bersih
-  light_background: "#fff0f3" # Pink sangat muda (untuk background selang-seling)
+  text: "#1a1c20"
+  border: "#ddd"
+  link: "#4a76ee"
+  highlight: "#0c0cf2"
+  background: "#ffffff"
+  light_background: "#f3f5fb"
 
 # A few examples. 
 basic theme:
