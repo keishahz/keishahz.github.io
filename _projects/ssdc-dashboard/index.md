@@ -1,13 +1,13 @@
 ---
 layout: post
-title: E-Commerce Business Insight (SSDC 2025)
-description: Finalis Sebelas Maret Statistics Fair 2025. Dashboard interaktif untuk menganalisis preferensi pembeli, kualitas produk, dan efisiensi logistik menggunakan Brazilian E-Commerce Dataset.
+title: E-Commerce Business Insight Dashboard
+description: Dashboard interaktif untuk menganalisis performa bisnis e-commerce, kualitas produk, dan logistik menggunakan data Olist.
 skills:
   - Python
   - Streamlit
-  - Plotly Express
   - Pandas
-  - Data Storytelling
+  - Plotly
+  - Data Analysis
 main-image: /ecomm.jpg
 ---
 
@@ -17,10 +17,25 @@ Proyek ini merupakan karya tim **"Mohon Bantuannya"** yang disusun untuk kompeti
 
 Tujuan utama dari dashboard ini adalah membantu pemangku kepentingan (stakeholder) perusahaan e-commerce dalam mengambil keputusan strategis berbasis data. Analisis difokuskan pada tiga pilar utama: **Preferensi Pembeli, Kualitas Produk, dan Kinerja Pengiriman**.
 
-### Tautan Penting
+<div style="display:flex; gap:12px; margin:20px 0; flex-wrap:wrap;">
+  <a href="https://ssdc-dashboard-ecommerce.streamlit.app/" target="_blank" style="text-decoration:none; color:#333; background-color:#f4f4f4; padding:10px 18px; border-radius:8px; font-weight:600; border:1px solid #ddd; display:inline-flex; align-items:center;">
+    🔗 Live Demo Streamlit
+  </a>
+  <a href="https://github.com/keishahz/SSDC-Ecommerce-Dashboard" target="_blank" style="text-decoration:none; color:#333; background-color:#f4f4f4; padding:10px 18px; border-radius:8px; font-weight:600; border:1px solid #ddd; display:inline-flex; align-items:center;">
+    📂 Repositori GitHub
+  </a>
+</div>
 
-* [**Lihat Live Demo Aplikasi**](https://ssdc-dashboard-ecommerce.streamlit.app/)
-* [**Source Code di GitHub**](https://github.com/keishahz/SSDC-Dashboard-ECommerce)
+<div class="summary" style="background: transparent; box-shadow: none; margin: 30px 0; padding: 0;">
+  <div class="skills-card">
+    <h2>Keahlian yang Digunakan</h2>
+    <div class="skills-list">
+      {% for skill in page.skills %}
+      <span class="skill">{{ skill }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 
 ---
 
@@ -65,43 +80,62 @@ Berikut adalah beberapa visualisasi kunci yang disajikan dalam dashboard ini:
 
 Visualisasi interaktif yang memetakan lokasi pelanggan berdasarkan koordinat latitude/longitude untuk melihat densitas pasar secara *real-time*.
 
-{% include image-gallery.html images="/assets/projects/ssdc-dashboard/map-preview.jpg" height="400" %}
+{% include image-gallery.html images="/assets/projects/ssdc-dashboard/map-preview.png" height="400" %}
 
 ### b. Analisis Ulasan & Sentimen
 
 Grafik batang yang membandingkan total penjualan dengan rata-rata skor ulasan untuk mengidentifikasi produk yang "Laris tapi Mengecewakan".
 
-{% include image-gallery.html images="/assets/projects/ssdc-dashboard/chart-review.jpg" height="300" %}
+{% include image-gallery.html images="/assets/projects/ssdc-dashboard/chart-review.png" height="300" %}
 
 ---
 
-## 💻 Sorotan Kode (Code Snippets)
+## 💻 Sorotan Kode
 
-Salah satu tantangan terbesar adalah menggabungkan 9 dataset berbeda menjadi satu kesatuan data yang utuh. Berikut adalah implementasi fungsi `load_all_data` menggunakan Pandas:
+### **a. Konfigurasi & Load Data Dashboard**
 
-```python
+Potongan kode berikut menunjukkan konfigurasi awal Streamlit dan proses pemuatan serta penggabungan dataset utama.
+
+```
+st.set_page_config(
+    page_title="Dashboard E-Commerce SSDC 2025",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 @st.cache_data
 def load_all_data():
-    # Load dataset csv...
-    # Proses merging bertahap untuk mempertahankan integritas data
-    merge_steps = [
-        (loaded_data['order_items'], 'order_id'),
-        (loaded_data['products'], 'product_id'),
-        (loaded_data['order_reviews'], 'order_id'),
-        (loaded_data['customers'], 'customer_id'),
-        # ... (tabel lainnya)
-    ]
-    
-    for df_to_merge, on_key in merge_steps:
-        df_merged = pd.merge(df_merged, df_to_merge, on=on_key, how='left')
-    
-    # Feature Engineering: Menghitung Delivery Performance
-    # (Selisih waktu estimasi vs aktual)
-    df_merged['delivery_performance_days'] = (
-        df_merged['order_estimated_delivery_date'] - df_merged['order_delivered_customer_date']
-    ).dt.days
+    df_orders = pd.read_csv("data/orders_dataset.csv")
+    df_items = pd.read_csv("data/order_items_dataset.csv")
+    df_reviews = pd.read_csv("data/order_reviews_dataset.csv")
 
-    return df_merged
+    df = df_orders.merge(df_items, on="order_id", how="left") \
+                   .merge(df_reviews, on="order_id", how="left")
+    return df
+```
+### **b. Feature Engineering Pengiriman**
+
+Digunakan untuk mengevaluasi durasi pengiriman dan ketepatan estimasi.
+
+```
+df['delivery_duration_days'] = (
+    df['order_delivered_customer_date'] -
+    df['order_purchase_timestamp']
+).dt.days
+
+df['delivery_performance_days'] = (
+    df['order_estimated_delivery_date'] -
+    df['order_delivered_customer_date']
+).dt.days
+```
+### **c. Analisis Ulasan Negatif per Kategori**
+
+Potongan ini digunakan untuk mengidentifikasi kategori dengan performa ulasan terburuk.
+
+```
+avg_reviews = df.groupby(
+    'product_category_name_english'
+)['review_score'].mean().nsmallest(5)
 ```
 
 ---
