@@ -17,7 +17,7 @@ Proyek ini dikembangkan sebagai tugas besar untuk mata kuliah Visualisasi Data d
 
 Menggunakan data dari **Pacific Data Hub (Blue Pacific 2050)**, dashboard ini berfungsi sebagai alat bantu pengambilan keputusan bagi pembuat kebijakan untuk melihat apakah transisi energi yang dilakukan memiliki korelasi langsung dengan pengurangan dampak bencana.
 
-**Tautan Aplikasi:** [**Live Demo Streamlit**](https://visdat-climate.streamlit.app/) [**|**] [**Repositori GitHub**](https://github.com/keishahz/DATAVIZ)
+**Tautan Aplikasi:** [**Live Demo Streamlit**](https://visdat-climate.streamlit.app/) | [**Repositori GitHub**](https://github.com/keishahz/DATAVIZ)
 
 ---
 
