@@ -17,16 +17,7 @@ Proyek ini dikembangkan sebagai tugas besar untuk mata kuliah Visualisasi Data d
 
 Menggunakan data dari **Pacific Data Hub (Blue Pacific 2050)**, dashboard ini berfungsi sebagai alat bantu pengambilan keputusan bagi pembuat kebijakan untuk melihat apakah transisi energi yang dilakukan memiliki korelasi langsung dengan pengurangan dampak bencana.
 
-**Tautan Aplikasi:** [**Live Demo Streamlit**](https://visdat-climate.streamlit.app/) | [**Repositori GitHub**](https://github.com/keishahz/DATAVIZ)
-
-<div style="background-color: #fff0f5; padding: 15px 20px; border-radius: 8px; margin-bottom: 30px; display: flex; align-items: center; flex-wrap: wrap;">
-  <span style="font-weight: 700; color: #222; margin-right: auto;">Tautan Aplikasi:</span>
-  <div style="display: flex; align-items: center;">
-    <a href="https://visdat-climate.streamlit.app/" target="_blank" style="color: #007bff; font-weight: 600; text-decoration: none;">Live Demo Streamlit</a>
-    <span style="display: inline-block; width: 2px; height: 18px; background-color: #ccc; margin: 0 15px;"></span>
-    <a href="https://github.com/keishahz/DATAVIZ" target="_blank" style="color: #007bff; font-weight: 600; text-decoration: none;">Repositori GitHub</a>
-  </div>
-</div>
+**Tautan Aplikasi:** [**Live Demo Streamlit**](https://visdat-climate.streamlit.app/) [**|**] [**Repositori GitHub**](https://github.com/keishahz/DATAVIZ)
 
 ---
 
