@@ -70,7 +70,7 @@ Berikut adalah fitur utama yang tersedia dalam aplikasi:
 Menyajikan grafik jumlah film dan distribusi genre berdasarkan tahun rilis untuk membantu pengguna memahami pola industri film.
 
 <div style="width: 80%; margin: 0 auto; display: block;">
-    {% include image-gallery.html images="trend.png" height="300" %}
+    {% include image-gallery.html images="tren.png" height="300" %}
 </div>
 
 ### **b. Rekomendasi Berbasis Mood**
