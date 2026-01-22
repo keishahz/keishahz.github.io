@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dashboard Visualisasi Data Iklim
-description: Finalis Pacific Data Viz Challenge 2025. Dashboard interaktif untuk menganalisis korelasi antara transisi energi, emisi karbon, dan dampak bencana di Pasifik.
+description: Dashboard interaktif untuk menganalisis korelasi antara transisi energi, emisi karbon, dan dampak bencana di Pasifik.
 skills:
   - Python
   - Streamlit
