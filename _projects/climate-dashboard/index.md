@@ -59,7 +59,7 @@ Memvisualisasikan hubungan timbal balik antara tiga variabel krusial: kapasitas 
 ### b. Automated Insights (Wawasan Otomatis)
 Fitur pintar yang secara otomatis menerjemahkan data grafik menjadi narasi teks, sehingga pengguna awam bisa langsung paham tanpa harus pusing baca grafik.
 
-{% include image-gallery.html images="conclusion.png" height="200" %}
+{% include image-gallery.html images="conclusion.png" height="400" %}
 
 ---
 
