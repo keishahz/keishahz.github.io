@@ -13,9 +13,9 @@ main-image: /climate.jpg
 
 ## 🏆 Tentang Proyek
 
-Proyek ini dikembangkan sebagai tugas besar untuk mata kuliah Visualisasi Data dan diikutsertakan dalam **Pacific Data Viz Challenge 2025**. 
+Proyek ini dikembangkan sebagai tugas besar untuk mata kuliah Visualisasi Data dan diikutsertakan dalam **Pacific Data Viz Challenge 2025**. Dasbor ini memvisualisasikan tantangan ganda yang dihadapi oleh negara-negara Kepulauan Pasifik: urgensi mitigasi perubahan iklim melalui energi terbarukan dan perlindungan terhadap dampak bencana alam.
 
-Dasbor ini memvisualisasikan tantangan ganda yang dihadapi oleh negara-negara Kepulauan Pasifik: urgensi mitigasi perubahan iklim melalui energi terbarukan dan perlindungan terhadap dampak bencana alam. Menggunakan data dari **Pacific Data Hub (Blue Pacific 2050)**, dashboard ini berfungsi sebagai alat bantu pengambilan keputusan bagi pembuat kebijakan untuk melihat apakah transisi energi yang dilakukan memiliki korelasi langsung dengan pengurangan dampak bencana.
+Menggunakan data dari **Pacific Data Hub (Blue Pacific 2050)**, dashboard ini berfungsi sebagai alat bantu pengambilan keputusan bagi pembuat kebijakan untuk melihat apakah transisi energi yang dilakukan memiliki korelasi langsung dengan pengurangan dampak bencana.
 
 <div style="display:flex; gap:12px; margin:20px 0; flex-wrap:wrap;">
   <a href="https://visdat-climate.streamlit.app/" target="_blank" style="text-decoration:none; color:#333; background-color:#f4f4f4; padding:10px 18px; border-radius:8px; font-weight:600; border:1px solid #ddd; display:inline-flex; align-items:center;">
@@ -54,10 +54,10 @@ Analisis ini menggunakan dataset **Blue Pacific 2050 (Thematic Area 5)** yang me
 
 Berdasarkan analisis visual pada dashboard, berikut adalah temuan kuncinya:
 
-### 1. Efektivitas Transisi Energi
+### **1. Efektivitas Transisi Energi**
 Negara-negara yang konsisten meningkatkan kapasitas energi terbarukan (Watt/kapita) cenderung menunjukkan tren penurunan emisi CO₂ yang positif. Ini membuktikan bahwa investasi hijau mulai membuahkan hasil dalam mitigasi karbon.
 
-### 2. Gap Mitigasi vs Adaptasi
+### **2. Gap Mitigasi vs Adaptasi**
 Meskipun emisi karbon berhasil ditekan, data menunjukkan bahwa **jumlah korban terdampak bencana tidak serta-merta berkurang secara instan**.
 
 * **Masalah:** Bencana alam masih sering terjadi dengan dampak besar.
@@ -69,14 +69,14 @@ Meskipun emisi karbon berhasil ditekan, data menunjukkan bahwa **jumlah korban t
 
 Berikut adalah beberapa visualisasi kunci yang disajikan dalam dashboard ini:
 
-### a. Analisis Korelasi Multivariat
+### **a. Analisis Korelasi Multivariat**
 Memvisualisasikan hubungan timbal balik antara tiga variabel krusial: kapasitas energi terbarukan, emisi CO₂, dan populasi terdampak.
 
 <div style="width: 80%; margin: 0 auto; display: block;">
     {% include image-gallery.html images="newplot.png" height="300" %}
 </div>
 
-### b. Automated Insights (Wawasan Otomatis)
+### **b. Automated Insights (Wawasan Otomatis)**
 Fitur pintar yang secara otomatis menerjemahkan data grafik menjadi narasi teks, sehingga pengguna awam bisa langsung paham tanpa harus pusing baca grafik.
 
 <div style="width: 80%; margin: 0 auto; display: block;">
